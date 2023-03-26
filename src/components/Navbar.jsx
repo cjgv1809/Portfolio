@@ -8,19 +8,6 @@ const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (window.scrollY > 0) {
-  //       setActive("");
-  //     }
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
-
-  // detect which section is active on scroll and set the active state to the section id name to highlight the nav link on scroll
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll("section");

@@ -4,28 +4,23 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { services } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
-import SectionWrapper from "../hoc/SectionWrapper";
+import { SectionWrapper } from "../hoc";
 
 const About = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <h2 className={`${styles.sectionHeadText} text-white`}>About</h2>
+        <h2 className={`${styles.sectionHeadText} text-white mb-10`}>About</h2>
       </motion.div>
-
-      <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
-        className={`${styles.sectionSubText} mt-5 text-secondary text-lg max-w-3xl`}
-      >
-        I'm a skilled Frontend Developer and UI Designer with 3+ years of
-        experience in the field. I have a passion for creating beautiful and
-        functional websites and applications.
-      </motion.p>
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
         className={`${styles.sectionSubText} text-secondary text-lg max-w-3xl`}
       >
+        I'm a skilled Frontend Developer and UI Designer with 3+ years of
+        experience in the field. I have a passion for creating beautiful and
+        functional websites and apps.
+        <br />
         I'm always looking for new challenges and opportunities to improve my
         skills. I'm currently working as a freelancer and I'm open to new
         projects.
@@ -45,8 +40,9 @@ const ServiceCard = ({ service, index }) => {
     <Tilt
       className="xs:w-[250px] w-full"
       options={{
-        max: 45,
-        perspective: 1000,
+        reverse: true,
+        max: 15,
+        perspective: 500,
         scale: 1,
         speed: 450,
         transition: true,

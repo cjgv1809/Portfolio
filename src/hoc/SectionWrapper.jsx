@@ -9,7 +9,7 @@ const SectionWrapper = (Component, idName) => {
       <motion.section
         variants={staggerContainer()}
         id={idName}
-        className={`${styles.paddingX} relative w-full max-w-7xl flex flex-col items-start justify-center`}
+        className={`${styles.paddingX} relative w-full max-w-7xl flex flex-col items-start justify-center mt-10`}
         initial="hidden"
         whileInView={"show"}
         viewport={{ once: true, amount: 0.25 }}

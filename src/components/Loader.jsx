@@ -7,9 +7,9 @@ const Loader = () => {
   return (
     <Html>
       <span className="canvas-loader"></span>
-      <p className="font-bold text-2xl text-white mt-10">
-        {progress.toFixed(2)}%
-      </p>
+      <div className="flex justify-center items-center">
+        <p className="font-bold text-2xl text-white">{progress.toFixed(2)}%</p>
+      </div>
     </Html>
   );
 };
