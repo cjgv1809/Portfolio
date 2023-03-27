@@ -38,10 +38,7 @@ const Ball = ({ imgUrl }) => {
 
 const BallCanvas = ({ icon }) => {
   return (
-    <Canvas
-      gl={{ preserveDrawingBuffer: true }}
-      className="absolute top-0 left-0 w-full h-full"
-    >
+    <Canvas gl={{ preserveDrawingBuffer: true }} className="w-full h-full">
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls zoomSpeed={0.5} />
         <Ball imgUrl={icon} />

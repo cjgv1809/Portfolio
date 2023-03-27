@@ -7,21 +7,16 @@ import { logo, menu, close } from "../assets";
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
+  console.log("active: ", active);
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = document.querySelectorAll("section");
-      const scrollY = window.pageYOffset;
-
-      sections.forEach((current) => {
-        const sectionHeight = current.offsetHeight;
-        const sectionTop = current.offsetTop - 50;
-        const sectionId = current.getAttribute("id");
-
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          setActive(sectionId);
-        }
-      });
+      const currentScrollY = window.pageYOffset;
+      if (currentScrollY > 0) {
+        document.getElementById("navbar").classList.add("h-16");
+      } else {
+        document.getElementById("navbar").classList.remove("h-16");
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -58,7 +53,7 @@ const Navbar = () => {
                   active === link.id
                     ? "text-white hover:text-secondary"
                     : "text-secondary hover:text-white"
-                } text-base font-medium cursor-pointer`}
+                } text-base font-medium cursor-pointer transition duration-300 transform hover:scale-110`}
                 onClick={() => setActive(link.id)}
               >
                 {link.title}
