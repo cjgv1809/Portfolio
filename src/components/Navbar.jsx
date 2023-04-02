@@ -7,7 +7,6 @@ import { logo, menu, close } from "../assets";
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
-  console.log("active: ", active);
 
   useEffect(() => {
     const handleScroll = () => {

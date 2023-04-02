@@ -2,6 +2,9 @@ import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
+import { useForm } from "react-hook-form";
+import Alert from "./Alert";
+import Input from "./Input";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { EarthCanvas } from "./canvas";
@@ -10,49 +13,24 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
   const formRef = useRef(null);
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
   const [isLoading, setIsLoading] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const showToastAccordingToFormState = () => {
-    if (!form.name) {
-      toast.error("Please enter your name");
-    } else if (!form.email) {
-      toast.error("Please enter your email");
-    } else if (!form.message) {
-      toast.error("Please enter your message");
-    } else {
-      toast.success("The message has been sent.");
-      toast.info("I will get back to you as soon as possible. Thank you!");
-    }
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = (data) => {
     setIsLoading(true);
-
-    if (!form.name || !form.email || !form.message) {
-      setIsLoading(false);
-      return;
-    }
-
+    console.log(data);
     emailjs
       .send(
         "service_mut0c2q",
         "template_thakryh",
         {
-          from_name: form.name,
-          from_email: form.email,
-          message: form.message,
+          from_name: data.name,
+          from_email: data.email,
+          message: data.message,
           to_name: "Carlos",
           to_email: "carlos.gomes.1809@gmail.com",
         },
@@ -62,11 +40,9 @@ const Contact = () => {
         (result) => {
           console.log(result.text);
           setIsLoading(false);
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
+          toast.success("The message has been sent.");
+          toast.info("I will get back to you as soon as possible. Thank you!");
+          formRef.current.reset();
         },
         (error) => {
           console.log(error.text);
@@ -88,59 +64,42 @@ const Contact = () => {
 
           <form
             ref={formRef}
-            onSubmit={handleSubmit}
+            onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col gap-5"
           >
             <div>
-              <label
-                className="text-white text-sm font-semibold"
-                htmlFor="name"
-              >
-                Name
-              </label>
-              <input
-                id="name"
-                type="text"
-                name="name"
-                value={form.name}
-                onChange={handleChange}
-                placeholder="Enter your name"
-                className="w-full mt-2 bg-tertiary p-4  placeholder:text-secondary rounded-[10px] border-none font-medium outline-none"
+              <Input
+                register={register}
+                label="name"
+                aria-invalid={errors?.name ? "true" : "false"}
               />
+              {errors?.name && errors?.name?.type === "required" && (
+                <Alert title="Error" content="This field is required" />
+              )}
             </div>
             <div>
-              <label
-                className="text-white text-sm font-semibold"
-                htmlFor="email"
-              >
-                Email
-              </label>
-              <input
-                id="email"
-                type="email"
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-                placeholder="Enter your email"
-                className="w-full mt-2 bg-tertiary p-4  placeholder:text-secondary rounded-[10px] border-none font-medium outline-none"
+              <Input
+                register={register}
+                label="email"
+                aria-invalid={errors?.email ? "true" : "false"}
               />
+              {(errors?.email && errors?.email?.type === "required" && (
+                <Alert title="Error" content="This field is required" />
+              )) ||
+                (errors?.email && errors?.email?.type === "pattern" && (
+                  <Alert title="Error" content="Invalid email" />
+                ))}
             </div>
             <div>
-              <label
-                className="text-white text-sm font-semibold"
-                htmlFor="message"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                rows={5}
-                name="message"
-                value={form.message}
-                onChange={handleChange}
-                placeholder="Enter your message"
-                className="w-full mt-2 bg-tertiary p-4  placeholder:text-secondary rounded-[10px] border-none font-medium outline-none resize-none"
+              <Input
+                register={register}
+                label="message"
+                isInput={false}
+                aria-invalid={errors?.message ? "true" : "false"}
               />
+              {errors?.message && errors?.message?.type === "required" && (
+                <Alert title="Error" content="This field is required" />
+              )}
             </div>
             <button
               type="submit"
@@ -148,7 +107,6 @@ const Contact = () => {
               hover:text-black-200 disabled:bg-gray-400 disabled:text-white
               disabled:cursor-not-allowed cursor-pointer transition-colors duration-300 ease-in-out"
               disabled={isLoading}
-              onClick={showToastAccordingToFormState}
             >
               {isLoading ? "Sending..." : "Send"}
             </button>
