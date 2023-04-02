@@ -8,21 +8,6 @@ const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.pageYOffset;
-      if (currentScrollY > 0) {
-        document.getElementById("navbar").classList.add("h-16");
-      } else {
-        document.getElementById("navbar").classList.remove("h-16");
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <nav
       className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary`}
@@ -38,7 +23,7 @@ const Navbar = () => {
           }}
         >
           <img src={logo} alt="logo" className="w-10 h-10 object-contain" />
-          <p className="text-2xl text-white font-bold cursor-pointer">
+          <p className="hidden sm:flex text-2xl text-white font-bold cursor-pointer">
             Carlos's Portfolio
           </p>
         </Link>
@@ -73,20 +58,20 @@ const Navbar = () => {
             <ul className="list-none flex flex-col items-center gap-10 absolute top-20 right-0 z-50 w-full p-4 bg-primary">
               {navLinks.map((link) => (
                 <li key={link.id}>
-                  <Link
-                    to={link.id}
+                  <a
+                    href={`#${link.id}`}
                     className={`${
-                      active === link.title
+                      active === link.id
                         ? "text-white hover:text-secondary"
                         : "text-secondary hover:text-white"
                     } text-base font-medium cursor-pointer`}
                     onClick={() => {
-                      setActive(link.title);
+                      setActive(link.id);
                       setToggle(!toggle);
                     }}
                   >
                     {link.title}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
