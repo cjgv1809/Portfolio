@@ -10,10 +10,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary`}
+      className={`${styles.paddingX} max-w-7xl w-full mx-auto flex items-center py-5 fixed top-0 z-20 bg-primary`}
       id="navbar"
     >
-      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
+      <div className="w-full flex justify-between items-center">
         <Link
           to="/"
           className="flex items-center gap-2"
