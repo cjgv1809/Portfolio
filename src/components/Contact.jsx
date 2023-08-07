@@ -58,9 +58,9 @@ const Contact = () => {
           variants={slideIn("right", "tween", 0.2, 1)}
           className="xl:flex-1 mb-5"
         >
-          <p className="text-5xl text-white font-bold text-center underline underline-offset-[10px]">
-            Let's get in touch.
-          </p>
+          <h5 className="text-3xl lg:text-5xl text-white font-bold text-center underline underline-offset-[10px]">
+            Let's get in <span className="text-[#915eff]">touch.</span>
+          </h5>
         </motion.div>
 
         <motion.div

@@ -18,6 +18,7 @@ html {
 .activeLink {
   @apply border-b-2 border-[#915eff] text-white transition-all duration-200 ease-in-out;
 }
+
 .black-gradient {
   background: #000000; /* fallback for old browsers */
   background: -webkit-linear-gradient(

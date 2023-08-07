@@ -13,6 +13,7 @@ const SectionWrapper = (Component, idName) => {
         initial="hidden"
         whileInView={"show"}
         viewport={{ once: true, amount: 0.25 }}
+        containerId={idName}
       >
         <Component />
       </motion.section>

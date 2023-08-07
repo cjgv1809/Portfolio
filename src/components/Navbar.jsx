@@ -42,6 +42,7 @@ const Navbar = () => {
                 smooth={true}
                 offset={-100}
                 duration={500}
+                hashSpy={true}
                 className="text-base font-medium cursor-pointer transition duration-300 transform hover:scale-110 text-secondary hover:text-white"
               >
                 {link.title}
@@ -69,6 +70,7 @@ const Navbar = () => {
                     smooth={true}
                     offset={-150}
                     duration={500}
+                    hashSpy={true}
                     className="text-base font-medium cursor-pointer transition duration-300 transform hover:scale-110 text-secondary hover:text-white"
                     onClick={() => {
                       setToggle(!toggle);

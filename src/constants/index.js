@@ -15,7 +15,6 @@ import {
   git,
   figma,
   docker,
-  meta,
   starbucks,
   tesla,
   shopify,
@@ -23,6 +22,10 @@ import {
   jobit,
   tripguide,
   threejs,
+  firebase,
+  nextjs,
+  mysql,
+  ms,
 } from "../assets";
 
 export const navLinks = [
@@ -46,7 +49,7 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Web Developer",
+    title: "Frontend Developer",
     icon: web,
   },
   {
@@ -54,11 +57,7 @@ const services = [
     icon: mobile,
   },
   {
-    title: "Backend Developer",
-    icon: backend,
-  },
-  {
-    title: "Content Creator",
+    title: "QA manual",
     icon: creator,
   },
 ];
@@ -81,7 +80,7 @@ const technologies = [
     icon: typescript,
   },
   {
-    name: "React JS",
+    name: "Reactjs",
     icon: reactjs,
   },
   {
@@ -93,16 +92,32 @@ const technologies = [
     icon: tailwind,
   },
   {
-    name: "Node JS",
+    name: "Nextjs",
+    icon: nextjs,
+  },
+  {
+    name: "Nodejs",
     icon: nodejs,
+  },
+  {
+    name: "MySQL",
+    icon: mysql,
+  },
+  {
+    name: "Firebase",
+    icon: firebase,
   },
   {
     name: "MongoDB",
     icon: mongodb,
   },
   {
-    name: "Three JS",
+    name: "Threejs",
     icon: threejs,
+  },
+  {
+    name: "React Native",
+    icon: reactjs,
   },
   {
     name: "Git",
@@ -120,16 +135,21 @@ const technologies = [
 
 const experiences = [
   {
-    title: "Full stack Developer",
-    company_name: "Meta",
-    icon: meta,
+    title: "UX/UI Developer",
+    company_name: "Making Sense",
+    icon: ms,
     iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
+    date: "Jun 2021 - Jul 2023",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+      "Developing and maintaining web applications using React.js/Typescript and components with Storybook.",
+      "Working on a ecommerce platform for a client using basic web technologies like HTML, CSS, SASS, JS, jQuery, XSL and other related technologies.",
+      "Collaborating with cross-functional teams including designers, product managers and other developers to create high-quality products.",
+      "Participating in the development of a new Design System for the clients.",
       "Implementing responsive design and ensuring cross-browser compatibility.",
       "Participating in code reviews and providing constructive feedback to other developers.",
+      "Working with the QA team to ensure the quality of the product.",
+      "Testing the application in different environments and devices to ensure the quality of the product.",
+      "Deploying features to production using pipelines already created by the DevOps team.",
     ],
   },
   {
@@ -145,32 +165,32 @@ const experiences = [
       "Participating in code reviews and providing constructive feedback to other developers.",
     ],
   },
-  {
-    title: "React Native Developer",
-    company_name: "Tesla",
-    icon: tesla,
-    iconBg: "#E6DEDD",
-    date: "April 2021 - Feb 2022",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "React.js Developer",
-    company_name: "Starbucks",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "March 2020 - April 2021",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
+  // {
+  //   title: "React Native Developer",
+  //   company_name: "Tesla",
+  //   icon: tesla,
+  //   iconBg: "#E6DEDD",
+  //   date: "April 2021 - Feb 2022",
+  //   points: [
+  //     "Developing and maintaining web applications using React.js and other related technologies.",
+  //     "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+  //     "Implementing responsive design and ensuring cross-browser compatibility.",
+  //     "Participating in code reviews and providing constructive feedback to other developers.",
+  //   ],
+  // },
+  // {
+  //   title: "React.js Developer",
+  //   company_name: "Starbucks",
+  //   icon: starbucks,
+  //   iconBg: "#383E56",
+  //   date: "March 2020 - April 2021",
+  //   points: [
+  //     "Developing and maintaining web applications using React.js and other related technologies.",
+  //     "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+  //     "Implementing responsive design and ensuring cross-browser compatibility.",
+  //     "Participating in code reviews and providing constructive feedback to other developers.",
+  //   ],
+  // },
 ];
 
 const testimonials = [
