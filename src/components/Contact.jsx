@@ -53,10 +53,19 @@ const Contact = () => {
 
   return (
     <>
-      <div className="xl:mt-10 xl:flex-row w-full flex-col-reverse flex overflow-hidden mb-20">
+      <div className="xl:mt-10 flex-col justify-center items-center w-full flex overflow-hidden mb-20">
+        <motion.div
+          variants={slideIn("right", "tween", 0.2, 1)}
+          className="xl:flex-1 mb-5"
+        >
+          <p className="text-5xl text-white font-bold text-center underline underline-offset-[10px]">
+            Let's get in touch.
+          </p>
+        </motion.div>
+
         <motion.div
           variants={slideIn("left", "tween", 0.2, 1)}
-          className="xl:flex-1 bg-black-100 p-6 rounded-2xl"
+          className="w-full md:max-w-xl xl:flex-1 xl:min-w-fit bg-black-100 p-6 rounded-2xl"
         >
           <h2 className={`${styles.sectionHeadText} text-white mb-10`}>
             Contact
@@ -111,13 +120,6 @@ const Contact = () => {
               {isLoading ? "Sending..." : "Send"}
             </button>
           </form>
-        </motion.div>
-
-        <motion.div
-          variants={slideIn("right", "tween", 0.2, 1)}
-          className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
-        >
-          <EarthCanvas />
         </motion.div>
       </div>
 

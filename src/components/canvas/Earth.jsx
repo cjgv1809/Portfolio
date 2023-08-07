@@ -32,6 +32,8 @@ const EarthCanvas = () => {
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
+      </Suspense>
+      <Suspense fallback={null}>
         <Earth />
       </Suspense>
 
