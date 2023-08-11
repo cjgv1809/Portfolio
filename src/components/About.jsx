@@ -17,9 +17,9 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className={`${styles.sectionSubText} text-secondary text-lg max-w-3xl`}
       >
-        I'm a skilled Frontend Developer and UI Designer with 3+ years of
-        experience in the field. I have a passion for creating beautiful and
-        functional websites and apps.
+        I'm a skilled Frontend/UI Developer with 2+ years of experience in the
+        field. I have a passion for creating beautiful and functional websites
+        and apps.
         <br />
         I'm always looking for new challenges and opportunities to improve my
         skills. I'm currently working as a freelancer and I'm open to new
